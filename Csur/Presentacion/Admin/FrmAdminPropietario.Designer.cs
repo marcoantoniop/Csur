@@ -38,6 +38,7 @@
             DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement4 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminPropietario));
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.lOTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,6 +59,7 @@
             this.pERSONABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.pRopietarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnCuentas = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOTEBindingSource)).BeginInit();
@@ -72,6 +74,9 @@
             // ribbon
             // 
             this.ribbon.ExpandCollapseItem.Id = 0;
+            this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.BtnCuentas});
+            this.ribbon.MaxItemId = 5;
             // 
             // ribbonPage1
             // 
@@ -80,8 +85,9 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.BtnCuentas);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Cuenta";
             // 
             // gridControl1
             // 
@@ -283,6 +289,15 @@
             // 
             this.pRopietarioBindingSource.DataSource = typeof(Csur.Datos.EntidadPROPIETARIO);
             // 
+            // BtnCuentas
+            // 
+            this.BtnCuentas.Caption = "Editar o modificar cuenta";
+            this.BtnCuentas.Id = 4;
+            this.BtnCuentas.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnCuentas.ImageOptions.Image")));
+            this.BtnCuentas.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnCuentas.ImageOptions.LargeImage")));
+            this.BtnCuentas.Name = "BtnCuentas";
+            this.BtnCuentas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnCuentas_ItemClick);
+            // 
             // FrmAdminPropietario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,5 +344,6 @@
         private System.Windows.Forms.BindingSource pRopietarioBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colPROPIETARIO;
         private DevExpress.XtraGrid.Columns.GridColumn colIdPersona;
+        private DevExpress.XtraBars.BarButtonItem BtnCuentas;
     }
 }

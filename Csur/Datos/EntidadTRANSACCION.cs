@@ -26,11 +26,13 @@ namespace Csur.Datos
         public Nullable<int> IdCliente { get; set; }
         public string TipoTransaccion { get; set; }
         public string Observacion { get; set; }
+        public int IdAsiento { get; set; }
     
         public virtual EntidadCLIENTE CLIENTE { get; set; }
         public virtual EntidadCUENTA CUENTA { get; set; }
         public virtual EntidadPERSONA PERSONA { get; set; }
         public virtual EntidadPLANCUENTAS PLANCUENTAS { get; set; }
         public virtual EntidadVENTA VENTA { get; set; }
+        public virtual EntidadASIENTOS ASIENTOS { get; set; }
     }
 }

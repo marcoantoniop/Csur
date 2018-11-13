@@ -38,6 +38,7 @@
             this.BtnAdminUsuario = new DevExpress.XtraBars.BarButtonItem();
             this.BtnNuevaVenta = new DevExpress.XtraBars.BarButtonItem();
             this.BtnAdminPropietario = new DevExpress.XtraBars.BarButtonItem();
+            this.BtnConfigAvanzada = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPPrincipal = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonGInicial = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonGRapidos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -45,6 +46,7 @@
             this.ribbonPTerrenos = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPPersonal = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPCliente = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPReportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPTransacciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonGTransacciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,9 +72,10 @@
             this.BtnAdminCliente,
             this.BtnAdminUsuario,
             this.BtnNuevaVenta,
-            this.BtnAdminPropietario});
+            this.BtnAdminPropietario,
+            this.BtnConfigAvanzada});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 8;
+            this.ribbonControl1.MaxItemId = 9;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPPrincipal,
@@ -141,6 +144,14 @@
             this.BtnAdminPropietario.Name = "BtnAdminPropietario";
             this.BtnAdminPropietario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnAdminPropietario_ItemClick);
             // 
+            // BtnConfigAvanzada
+            // 
+            this.BtnConfigAvanzada.Caption = "Configuración Avanzada";
+            this.BtnConfigAvanzada.Id = 8;
+            this.BtnConfigAvanzada.ImageOptions.LargeImage = global::Csur.Properties.Resources.ico_config;
+            this.BtnConfigAvanzada.Name = "BtnConfigAvanzada";
+            this.BtnConfigAvanzada.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnConfigAvanzada_ItemClick);
+            // 
             // ribbonPPrincipal
             // 
             this.ribbonPPrincipal.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -167,7 +178,8 @@
             this.ribbonPConfig.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPTerrenos,
             this.ribbonPPersonal,
-            this.ribbonPCliente});
+            this.ribbonPCliente,
+            this.ribbonPageGroup1});
             this.ribbonPConfig.Name = "ribbonPConfig";
             this.ribbonPConfig.Text = "Configuración";
             // 
@@ -189,6 +201,12 @@
             this.ribbonPCliente.ItemLinks.Add(this.BtnAdminCliente);
             this.ribbonPCliente.Name = "ribbonPCliente";
             this.ribbonPCliente.Text = "Clientes";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.BtnConfigAvanzada);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Avanzado";
             // 
             // ribbonPReportes
             // 
@@ -262,6 +280,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGRapidos;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGTransacciones;
         private DevExpress.XtraBars.BarButtonItem BtnAdminPropietario;
+        private DevExpress.XtraBars.BarButtonItem BtnConfigAvanzada;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }
 

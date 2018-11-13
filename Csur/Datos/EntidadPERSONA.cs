@@ -21,6 +21,9 @@ namespace Csur.Datos
             this.TRANSACCION = new HashSet<EntidadTRANSACCION>();
             this.VENTA = new HashSet<EntidadVENTA>();
             this.PROPIETARIO = new HashSet<EntidadPROPIETARIO>();
+            this.COMISION = new HashSet<EntidadCOMISION>();
+            this.CONFIGURACION = new HashSet<EntidadCONFIGURACION>();
+            this.CONFIGURACION1 = new HashSet<EntidadCONFIGURACION>();
         }
     
         public int IdPersona { get; set; }
@@ -41,5 +44,11 @@ namespace Csur.Datos
         public virtual ICollection<EntidadVENTA> VENTA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EntidadPROPIETARIO> PROPIETARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntidadCOMISION> COMISION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntidadCONFIGURACION> CONFIGURACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EntidadCONFIGURACION> CONFIGURACION1 { get; set; }
     }
 }

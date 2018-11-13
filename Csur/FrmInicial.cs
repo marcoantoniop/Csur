@@ -51,5 +51,11 @@ namespace Csur
             FrmAdminPropietario frmAdminPropietario = new FrmAdminPropietario();
             frmAdminPropietario.ShowDialog();
         }
+
+        private void BtnConfigAvanzada_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmConfig frmConfig = new FrmConfig();
+            frmConfig.ShowDialog();
+        }
     }
 }

@@ -123,6 +123,46 @@ namespace Csur.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ico_commission {
+            get {
+                object obj = ResourceManager.GetObject("ico_commission", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ico_commission_ind {
+            get {
+                object obj = ResourceManager.GetObject("ico_commission_ind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ico_commission_varios {
+            get {
+                object obj = ResourceManager.GetObject("ico_commission_varios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ico_config {
+            get {
+                object obj = ResourceManager.GetObject("ico_config", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ico_fase {
             get {
                 object obj = ResourceManager.GetObject("ico_fase", resourceCulture);
@@ -246,6 +286,36 @@ namespace Csur.Properties {
         internal static System.Drawing.Bitmap ico_venta {
             get {
                 object obj = ResourceManager.GetObject("ico_venta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_config_new {
+            get {
+                object obj = ResourceManager.GetObject("icon_config_new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_config_save {
+            get {
+                object obj = ResourceManager.GetObject("icon_config_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_sobre_dinero {
+            get {
+                object obj = ResourceManager.GetObject("icon_sobre_dinero", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,70 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fondo_asist_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo_asist_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo_asist_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo_asist_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_fase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_fase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_varita" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_varita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo_asist_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo_asist_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_map_seg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_map_seg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_persona_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_persona_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_persona_cuenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_persona_cuenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_persona_lock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_persona_lock1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_lote" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_lote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_cortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_cortado.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo_asist_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo_asist_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ico_pagos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_pagos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cuadro_manos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cuadro_manos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ico_manzano" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_manzano.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo_asist_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo_asist_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="imagen_observaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imagen_observaciones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ico_venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_venta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ico_propietario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_propietario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagen_observaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagen_observaciones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_map_seg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_map_seg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_commission" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_commission.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_fase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_fase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_manzano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_manzano.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_commission_varios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_commission_varios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_varita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_varita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo_asist_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo_asist_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuadro_manos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuadro_manos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_persona_cuenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_persona_cuenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo_asist_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo_asist_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_cortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_cortado.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo_asist_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo_asist_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo_asist_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo_asist_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_commission_ind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_commission_ind.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_sobre_dinero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_sobre_dinero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="manos_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manos_horizontal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_persona_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_persona_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_lote" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_lote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ico_persona_lock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_persona_lock1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ico_persona_cuenta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_persona_cuenta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ico_propietario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_propietario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondo_asist_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo_asist_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_config_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_config_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_config_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_config_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

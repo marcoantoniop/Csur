@@ -35,5 +35,9 @@ namespace Csur.Datos
         public virtual DbSet<EntidadTRANSACCION> TRANSACCION { get; set; }
         public virtual DbSet<EntidadVENTA> VENTA { get; set; }
         public virtual DbSet<EntidadPROPIETARIO> PROPIETARIO { get; set; }
+        public virtual DbSet<EntidadCOMISION> COMISION { get; set; }
+        public virtual DbSet<EntidadCONFIGURACION> CONFIGURACION { get; set; }
+        public virtual DbSet<EntidadPARAMETROS> PARAMETROS { get; set; }
+        public virtual DbSet<EntidadASIENTOS> ASIENTOS { get; set; }
     }
 }

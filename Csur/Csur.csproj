@@ -50,6 +50,7 @@
     <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraMap.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -80,7 +81,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\EntidadASIENTOS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Datos\EntidadCLIENTE.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadCOMISION.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadCONFIGURACION.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Datos\EntidadCUENTA.cs">
@@ -93,6 +103,9 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Datos\EntidadMANZANO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadPARAMETROS.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Datos\EntidadPERSONA.cs">
@@ -131,6 +144,7 @@
     <Compile Include="FrmInicial.Designer.cs">
       <DependentUpon>FrmInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ClassConfiguracion.cs" />
     <Compile Include="Modelo\ClassVenta.cs" />
     <Compile Include="Negocio\CapaNegocio.cs" />
     <Compile Include="Negocio\Mensajes.cs" />
@@ -154,11 +168,29 @@
     <Compile Include="Presentacion\Admin\FrmAdminTerreno.Designer.cs">
       <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Admin\FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmConfig.Designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Controles\ControlCliente.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentacion\Controles\ControlCliente.Designer.cs">
       <DependentUpon>ControlCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlConfiguraParam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlConfiguraParam.Designer.cs">
+      <DependentUpon>ControlConfiguraParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlCuenta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlCuenta.Designer.cs">
+      <DependentUpon>ControlCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Controles\ControlPersona.cs">
       <SubType>UserControl</SubType>
@@ -210,8 +242,17 @@
     <EmbeddedResource Include="Presentacion\Admin\FrmAdminTerreno.resx">
       <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Admin\FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Controles\ControlCliente.resx">
       <DependentUpon>ControlCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Controles\ControlConfiguraParam.resx">
+      <DependentUpon>ControlConfiguraParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Controles\ControlCuenta.resx">
+      <DependentUpon>ControlCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Controles\ControlPersona.resx">
       <DependentUpon>ControlPersona.cs</DependentUpon>
@@ -253,10 +294,12 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Csur.Datos.DBcsurEntities.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadCLIENTE.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadCONFIGURACION.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadCUENTA.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadFASE.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadLOTE.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadMANZANO.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadPARAMETROS.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadPERSONA.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadPLANCUENTAS.datasource" />
     <None Include="Properties\DataSources\Csur.Datos.EntidadPROPIETARIO.datasource" />
@@ -286,6 +329,13 @@
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
     <Content Include="icono_app.ico" />
+    <None Include="Resources\icon_config_save.png" />
+    <None Include="Resources\icon_config_new.png" />
+    <None Include="Resources\icon_sobre_dinero.png" />
+    <None Include="Resources\ico_commission_varios.png" />
+    <None Include="Resources\ico_commission_ind.png" />
+    <None Include="Resources\ico_commission.png" />
+    <None Include="Resources\ico_config.png" />
     <None Include="Resources\ico_propietario.png" />
     <None Include="Resources\ico_persona_cuenta1.png" />
     <None Include="Resources\imagen_observaciones.jpg" />
@@ -311,9 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RichTextBoxExtended\RichTextBoxExtended.csproj">

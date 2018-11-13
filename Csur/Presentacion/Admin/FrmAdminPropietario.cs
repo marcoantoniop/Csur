@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Csur.Datos;
 using Csur.Negocio;
+using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
@@ -24,6 +25,8 @@ namespace Csur.Presentacion.Admin
         private EntidadFASE miEntidadFase = new EntidadFASE();
         private EntidadPERSONA miEntidadPersona = new EntidadPERSONA();
         private EntidadLOTE miEntidadLote = new EntidadLOTE();
+        private EntidadCUENTA miEntidadCuenta = new EntidadCUENTA();
+        private string mensajeError;
         public FrmAdminPropietario()
         {
             InitializeComponent();
@@ -159,6 +162,104 @@ namespace Csur.Presentacion.Admin
 
                 
             }
+        }
+
+        private void BtnCuentas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var miCuenta = dbContext.CUENTA.Where(cuenta => cuenta.IdPersona == miEntidadPersona.IdPersona).ToList();
+            if (miCuenta.Count == 0)
+            {
+                miEntidadCuenta = new EntidadCUENTA();
+                miEntidadCuenta.IdPersona = miEntidadPersona.IdPersona;
+                AbrirControlCuenta(miEntidadPersona.Nombre + " " + miEntidadPersona.Apellido, miEntidadCuenta,true);
+            }
+            else if(miCuenta.Count == 1)
+            {
+                miEntidadCuenta = miCuenta[0];
+                AbrirControlCuenta(miEntidadPersona.Nombre + " " + miEntidadPersona.Apellido, miEntidadCuenta, false);
+                
+            }
+            else
+            {
+                Mensajes.MensajeRapido("EXISTE UN ERROR DE CUENTAS, CUENTAS DUPLICADAS, NO SE PUEDE CONTINUAR");
+            }
+
+        }
+
+
+        private void AbrirControlCuenta(string nombreSocio, EntidadCUENTA miEntidad, bool nuevoRegistro)
+        {
+            /*************************
+             * CREAMOS EL CONTROL
+             *************************/
+
+            Controles.ControlCuenta miControl = new Controles.ControlCuenta();
+            XtraDialogArgs miDialogo = new XtraDialogArgs();
+            miDialogo.Showing += Args_Showing;
+            miDialogo.Content = miControl;
+            miDialogo.Caption = "ESTABLECER CUENTA BANCARIA";
+            miDialogo.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+
+            /**********************************
+             * SI HAY ESTABLECEMOS PROPIEDADES
+             * ********************************/
+            miControl.entidadCUENTABindingSource.DataSource = miEntidad;
+            miControl.txtSocio.Text = nombreSocio;
+            /*************************************
+             * MOSTRAMOS EL DIALOGO EN PANTALLA
+             * ***********************************/
+            DialogResult miResultado = XtraDialog.Show(miDialogo);
+            /***************************************
+             * AL CERRARSE VERIFICAMOS EL BOTON OK
+             * *************************************/
+            if (miResultado == DialogResult.OK)
+            {
+                miEntidad = (EntidadCUENTA)miControl.entidadCUENTABindingSource.Current;
+                /**********************************************************
+                 * VERIFICAMOS LOS CAMPOS LLENADOS DE FORMA OBLIGATORIA
+                 * ********************************************************/
+                if (verificaCamposObligatoriosMiControlCuenta(miEntidad))
+                {
+                    if (nuevoRegistro)
+                    {
+                        dbContext.CUENTA.Add(miEntidad);
+                    }
+                    else
+                    {
+                        var temp = dbContext.CUENTA.Find(miEntidad.IdCuenta);
+                        dbContext.Entry(temp).CurrentValues.SetValues(miEntidad);
+                    }
+
+                    
+                    dbContext.SaveChanges();
+                    Mensajes.MensajeRapido("DATOS DE LA CUENTA GUARDADO CORRECTAMENTE");
+
+                    
+                }
+                else
+                {
+                    Mensajes.MensajeSimple("Falta información", this.mensajeError, MessageBoxIcon.Stop);
+                }
+                
+            }
+        }
+
+        private bool verificaCamposObligatoriosMiControlCuenta(EntidadCUENTA entidadControl)
+        {
+            bool resultado = true;
+            mensajeError = "";
+            if (entidadControl.Banco == null)
+            {
+                mensajeError = "Nombre del Banco" + Environment.NewLine;
+                resultado = false;
+            }
+            if (entidadControl.Cuenta1 == null)
+            {
+                mensajeError += "Número de la cuenta" + Environment.NewLine;
+                resultado = false;
+            }
+
+            return resultado;
         }
     }
 }

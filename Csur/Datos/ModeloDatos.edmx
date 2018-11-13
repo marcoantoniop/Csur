@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBcsurModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASIENTOS">
+          <Key>
+            <PropertyRef Name="IdAsiento" />
+          </Key>
+          <Property Name="IdAsiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreAsiento" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="IdCliente" />
@@ -19,6 +26,31 @@
           <Property Name="Clave" Type="varchar" MaxLength="50" />
           <Property Name="Ci" Type="varchar" MaxLength="10" />
           <Property Name="FechaNacimiento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="COMISION">
+          <Key>
+            <PropertyRef Name="IdComision" />
+          </Key>
+          <Property Name="IdComision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Porcentaje" Type="int" Nullable="false" />
+          <Property Name="IdPromotor" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONFIGURACION">
+          <Key>
+            <PropertyRef Name="IdConfig" />
+          </Key>
+          <Property Name="IdConfig" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Parametro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ValorA" Type="varchar" MaxLength="50" />
+          <Property Name="ValorB" Type="varchar" MaxLength="50" />
+          <Property Name="ValorC" Type="varchar" MaxLength="50" />
+          <Property Name="Observacion" Type="varchar" MaxLength="300" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="CreadoPor" Type="int" Nullable="false" />
+          <Property Name="BajaPor" Type="int" />
         </EntityType>
         <EntityType Name="CUENTA">
           <Key>
@@ -60,6 +92,13 @@
           <Property Name="IdManzano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NumManzano" Type="int" Nullable="false" />
           <Property Name="IdFase" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARAMETROS">
+          <Key>
+            <PropertyRef Name="Parametro" />
+          </Key>
+          <Property Name="Parametro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="400" />
         </EntityType>
         <EntityType Name="PERSONA">
           <Key>
@@ -112,6 +151,7 @@
           <Property Name="IdVenta" Type="int" />
           <Property Name="IdPersona" Type="int" />
           <Property Name="IdCliente" Type="int" />
+          <Property Name="IdAsiento" Type="int" Nullable="false" />
           <Property Name="TipoTransaccion" Type="varchar" MaxLength="50" />
           <Property Name="Observacion" Type="text" />
         </EntityType>
@@ -128,6 +168,54 @@
           <Property Name="Observacion" Type="text" />
           <Property Name="Tipo" Type="varchar" MaxLength="15" />
         </EntityType>
+        <Association Name="FK_COMISION_PERSONA_IdPersonaPromotor">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="COMISION" Type="Self.COMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="COMISION">
+              <PropertyRef Name="IdPromotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PARAMETROS_Parametro">
+          <End Role="PARAMETROS" Type="Self.PARAMETROS" Multiplicity="1" />
+          <End Role="CONFIGURACION" Type="Self.CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARAMETROS">
+              <PropertyRef Name="Parametro" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="Parametro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="CONFIGURACION" Type="Self.CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PERSONA_IdPersonaBaja">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="CONFIGURACION" Type="Self.CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="BajaPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CUENTA_PERSONA_IdPersona">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
           <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
@@ -209,6 +297,18 @@
             </Principal>
             <Dependent Role="TRANSACCION">
               <PropertyRef Name="IdVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_ASIENTOS_IdAsiento">
+          <End Role="ASIENTOS" Type="Self.ASIENTOS" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASIENTOS">
+              <PropertyRef Name="IdAsiento" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdAsiento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -297,16 +397,36 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBcsurModelStoreContainer">
+          <EntitySet Name="ASIENTOS" EntityType="Self.ASIENTOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMISION" EntityType="Self.COMISION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIGURACION" EntityType="Self.CONFIGURACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FASE" EntityType="Self.FASE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOTE" EntityType="Self.LOTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MANZANO" EntityType="Self.MANZANO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETROS" EntityType="Self.PARAMETROS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PLANCUENTAS" EntityType="Self.PLANCUENTAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROPIETARIO" EntityType="Self.PROPIETARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSACCION" EntityType="Self.TRANSACCION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_COMISION_PERSONA_IdPersonaPromotor" Association="Self.FK_COMISION_PERSONA_IdPersonaPromotor">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="COMISION" EntitySet="COMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PARAMETROS_Parametro" Association="Self.FK_CONFIGURACION_PARAMETROS_Parametro">
+            <End Role="PARAMETROS" EntitySet="PARAMETROS" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PERSONA_IdPersona" Association="Self.FK_CONFIGURACION_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PERSONA_IdPersonaBaja" Association="Self.FK_CONFIGURACION_PERSONA_IdPersonaBaja">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
           <AssociationSet Name="FK_CUENTA_PERSONA_IdPersona" Association="Self.FK_CUENTA_PERSONA_IdPersona">
             <End Role="PERSONA" EntitySet="PERSONA" />
             <End Role="CUENTA" EntitySet="CUENTA" />
@@ -333,6 +453,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_TRANSACCION" Association="Self.FK_TRANSACCION">
             <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_ASIENTOS_IdAsiento" Association="Self.FK_TRANSACCION_ASIENTOS_IdAsiento">
+            <End Role="ASIENTOS" EntitySet="ASIENTOS" />
             <End Role="TRANSACCION" EntitySet="TRANSACCION" />
           </AssociationSet>
           <AssociationSet Name="FK_TRANSACCION_CLIENTE_IdCliente" Association="Self.FK_TRANSACCION_CLIENTE_IdCliente">
@@ -451,6 +575,9 @@
           <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PROPIETARIO" Relationship="DBcsurModel.FK_PROPIETARIO_PERSONA_IdPersona" FromRole="EntidadPERSONA" ToRole="PROPIETARIO" />
+          <NavigationProperty Name="COMISION" Relationship="DBcsurModel.FK_COMISION_PERSONA_IdPersonaPromotor" FromRole="EntidadPERSONA" ToRole="COMISION" />
+          <NavigationProperty Name="CONFIGURACION" Relationship="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersona" FromRole="EntidadPERSONA" ToRole="CONFIGURACION" />
+          <NavigationProperty Name="CONFIGURACION1" Relationship="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersonaBaja" FromRole="EntidadPERSONA" ToRole="CONFIGURACION" />
         </EntityType>
         <EntityType Name="EntidadPLANCUENTAS">
           <Key>
@@ -488,6 +615,8 @@
           <NavigationProperty Name="PLANCUENTAS" Relationship="Self.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" FromRole="TRANSACCION" ToRole="PLANCUENTAS" />
           <NavigationProperty Name="VENTA" Relationship="Self.FK_TRANSACCION" FromRole="TRANSACCION" ToRole="VENTA" />
           <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdAsiento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ASIENTOS" Relationship="DBcsurModel.FK_TRANSACCION_ASIENTOS_IdAsiento" FromRole="EntidadTRANSACCION" ToRole="ASIENTOS" />
         </EntityType>
         <EntityType Name="EntidadVENTA">
           <Key>
@@ -718,6 +847,30 @@
             <End Role="EntidadPERSONA" EntitySet="PERSONA" />
             <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
           </AssociationSet>
+          <EntitySet Name="COMISION" EntityType="DBcsurModel.EntidadCOMISION" />
+          <EntitySet Name="CONFIGURACION" EntityType="DBcsurModel.EntidadCONFIGURACION" />
+          <EntitySet Name="PARAMETROS" EntityType="DBcsurModel.EntidadPARAMETROS" />
+          <AssociationSet Name="FK_COMISION_PERSONA_IdPersonaPromotor" Association="DBcsurModel.FK_COMISION_PERSONA_IdPersonaPromotor">
+            <End Role="EntidadPERSONA" EntitySet="PERSONA" />
+            <End Role="COMISION" EntitySet="COMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PARAMETROS_Parametro" Association="DBcsurModel.FK_CONFIGURACION_PARAMETROS_Parametro">
+            <End Role="PARAMETROS" EntitySet="PARAMETROS" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PERSONA_IdPersona" Association="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersona">
+            <End Role="EntidadPERSONA" EntitySet="PERSONA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_PERSONA_IdPersonaBaja" Association="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersonaBaja">
+            <End Role="EntidadPERSONA" EntitySet="PERSONA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <EntitySet Name="ASIENTOS" EntityType="DBcsurModel.EntidadASIENTOS" />
+          <AssociationSet Name="FK_TRANSACCION_ASIENTOS_IdAsiento" Association="DBcsurModel.FK_TRANSACCION_ASIENTOS_IdAsiento">
+            <End Role="ASIENTOS" EntitySet="ASIENTOS" />
+            <End Role="EntidadTRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="EntidadPROPIETARIO">
           <Key>
@@ -752,6 +905,111 @@
             </Principal>
             <Dependent Role="PROPIETARIO">
               <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EntidadCOMISION">
+          <Key>
+            <PropertyRef Name="IdComision" />
+          </Key>
+          <Property Name="IdComision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Porcentaje" Type="Int32" Nullable="false" />
+          <Property Name="IdPromotor" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="DBcsurModel.FK_COMISION_PERSONA_IdPersonaPromotor" FromRole="COMISION" ToRole="EntidadPERSONA" />
+        </EntityType>
+        <EntityType Name="EntidadCONFIGURACION">
+          <Key>
+            <PropertyRef Name="IdConfig" />
+          </Key>
+          <Property Name="IdConfig" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Parametro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ValorA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ValorB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ValorC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="CreadoPor" Type="Int32" Nullable="false" />
+          <Property Name="BajaPor" Type="Int32" />
+          <NavigationProperty Name="PARAMETROS" Relationship="DBcsurModel.FK_CONFIGURACION_PARAMETROS_Parametro" FromRole="CONFIGURACION" ToRole="PARAMETROS" />
+          <NavigationProperty Name="PERSONA" Relationship="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersona" FromRole="CONFIGURACION" ToRole="EntidadPERSONA" />
+          <NavigationProperty Name="PERSONA1" Relationship="DBcsurModel.FK_CONFIGURACION_PERSONA_IdPersonaBaja" FromRole="CONFIGURACION" ToRole="EntidadPERSONA" />
+        </EntityType>
+        <EntityType Name="EntidadPARAMETROS">
+          <Key>
+            <PropertyRef Name="Parametro" />
+          </Key>
+          <Property Name="Parametro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CONFIGURACION" Relationship="DBcsurModel.FK_CONFIGURACION_PARAMETROS_Parametro" FromRole="PARAMETROS" ToRole="CONFIGURACION" />
+        </EntityType>
+        <Association Name="FK_COMISION_PERSONA_IdPersonaPromotor">
+          <End Type="DBcsurModel.EntidadPERSONA" Role="EntidadPERSONA" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadCOMISION" Role="COMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntidadPERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="COMISION">
+              <PropertyRef Name="IdPromotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PARAMETROS_Parametro">
+          <End Type="DBcsurModel.EntidadPARAMETROS" Role="PARAMETROS" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadCONFIGURACION" Role="CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARAMETROS">
+              <PropertyRef Name="Parametro" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="Parametro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PERSONA_IdPersona">
+          <End Type="DBcsurModel.EntidadPERSONA" Role="EntidadPERSONA" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadCONFIGURACION" Role="CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntidadPERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="CreadoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_PERSONA_IdPersonaBaja">
+          <End Type="DBcsurModel.EntidadPERSONA" Role="EntidadPERSONA" Multiplicity="0..1" />
+          <End Type="DBcsurModel.EntidadCONFIGURACION" Role="CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntidadPERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="BajaPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EntidadASIENTOS">
+          <Key>
+            <PropertyRef Name="IdAsiento" />
+          </Key>
+          <Property Name="IdAsiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreAsiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRANSACCION" Relationship="DBcsurModel.FK_TRANSACCION_ASIENTOS_IdAsiento" FromRole="ASIENTOS" ToRole="EntidadTRANSACCION" />
+        </EntityType>
+        <Association Name="FK_TRANSACCION_ASIENTOS_IdAsiento">
+          <End Type="DBcsurModel.EntidadASIENTOS" Role="ASIENTOS" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadTRANSACCION" Role="EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASIENTOS">
+              <PropertyRef Name="IdAsiento" />
+            </Principal>
+            <Dependent Role="EntidadTRANSACCION">
+              <PropertyRef Name="IdAsiento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -854,6 +1112,7 @@
           <EntitySetMapping Name="TRANSACCION">
             <EntityTypeMapping TypeName="DBcsurModel.EntidadTRANSACCION">
               <MappingFragment StoreEntitySet="TRANSACCION">
+                <ScalarProperty Name="IdAsiento" ColumnName="IdAsiento" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="IdTransaacion" ColumnName="IdTransaacion" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -891,6 +1150,49 @@
                 <ScalarProperty Name="IdLote" ColumnName="IdLote" />
                 <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
                 <ScalarProperty Name="IdPropietario" ColumnName="IdPropietario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMISION">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadCOMISION">
+              <MappingFragment StoreEntitySet="COMISION">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdPromotor" ColumnName="IdPromotor" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="IdComision" ColumnName="IdComision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGURACION">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadCONFIGURACION">
+              <MappingFragment StoreEntitySet="CONFIGURACION">
+                <ScalarProperty Name="BajaPor" ColumnName="BajaPor" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="ValorC" ColumnName="ValorC" />
+                <ScalarProperty Name="ValorB" ColumnName="ValorB" />
+                <ScalarProperty Name="ValorA" ColumnName="ValorA" />
+                <ScalarProperty Name="Parametro" ColumnName="Parametro" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdConfig" ColumnName="IdConfig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETROS">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadPARAMETROS">
+              <MappingFragment StoreEntitySet="PARAMETROS">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Parametro" ColumnName="Parametro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASIENTOS">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadASIENTOS">
+              <MappingFragment StoreEntitySet="ASIENTOS">
+                <ScalarProperty Name="NombreAsiento" ColumnName="NombreAsiento" />
+                <ScalarProperty Name="IdAsiento" ColumnName="IdAsiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

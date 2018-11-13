@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBcsurModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="Ci" Type="varchar" MaxLength="10" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CUENTA">
+          <Key>
+            <PropertyRef Name="IdCuenta" />
+          </Key>
+          <Property Name="IdCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="Banco" Type="varchar" MaxLength="50" />
+          <Property Name="Cuenta" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FASE">
+          <Key>
+            <PropertyRef Name="IdFase" />
+          </Key>
+          <Property Name="IdFase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreFase" Type="varchar" MaxLength="50" />
+          <Property Name="Archivo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="LOTE">
+          <Key>
+            <PropertyRef Name="IdLote" />
+          </Key>
+          <Property Name="IdLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreLote" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Latitud" Type="varchar" MaxLength="50" />
+          <Property Name="Longitud" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="int" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="IdManzano" Type="int" Nullable="false" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="MANZANO">
+          <Key>
+            <PropertyRef Name="IdManzano" />
+          </Key>
+          <Property Name="IdManzano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumManzano" Type="int" Nullable="false" />
+          <Property Name="IdFase" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PLANCUENTAS">
+          <Key>
+            <PropertyRef Name="IdPlanCuenta" />
+          </Key>
+          <Property Name="IdPlanCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="NumCuota" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Observacion" Type="text" />
+          <Property Name="IdVenta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROPIETARIO">
+          <Key>
+            <PropertyRef Name="IdPropietario" />
+          </Key>
+          <Property Name="IdPropietario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="IdLote" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRANSACCION">
+          <Key>
+            <PropertyRef Name="IdTransaacion" />
+          </Key>
+          <Property Name="IdTransaacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Glosa" Type="varchar" MaxLength="300" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="IdPlanCuenta" Type="int" />
+          <Property Name="IdVenta" Type="int" />
+          <Property Name="IdPersona" Type="int" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="TipoTransaccion" Type="varchar" MaxLength="50" />
+          <Property Name="Observacion" Type="text" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+          </Key>
+          <Property Name="IdVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLote" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="IdPersona" Type="int" Nullable="false" />
+          <Property Name="FechaContrato" Type="datetime" Nullable="false" />
+          <Property Name="MontoTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Observacion" Type="text" />
+          <Property Name="Tipo" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <Association Name="FK_CUENTA_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOTE_MANZANO_IdManzano">
+          <End Role="MANZANO" Type="Self.MANZANO" Multiplicity="1" />
+          <End Role="LOTE" Type="Self.LOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANZANO">
+              <PropertyRef Name="IdManzano" />
+            </Principal>
+            <Dependent Role="LOTE">
+              <PropertyRef Name="IdManzano" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANZANO_FASE_IdFase">
+          <End Role="FASE" Type="Self.FASE" Multiplicity="1" />
+          <End Role="MANZANO" Type="Self.MANZANO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FASE">
+              <PropertyRef Name="IdFase" />
+            </Principal>
+            <Dependent Role="MANZANO">
+              <PropertyRef Name="IdFase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANCUENTAS_VENTA_IdVenta">
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="1" />
+          <End Role="PLANCUENTAS" Type="Self.PLANCUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="IdVenta" />
+            </Principal>
+            <Dependent Role="PLANCUENTAS">
+              <PropertyRef Name="IdVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROPIETARIO_LOTE_IdLote">
+          <End Role="LOTE" Type="Self.LOTE" Multiplicity="1" />
+          <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOTE">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="PROPIETARIO">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROPIETARIO_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PROPIETARIO">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION">
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="IdVenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_CLIENTE_IdCliente">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_CUENTA_IdCuenta">
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUENTA">
+              <PropertyRef Name="IdCuenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta">
+          <End Role="PLANCUENTAS" Type="Self.PLANCUENTAS" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLANCUENTAS">
+              <PropertyRef Name="IdPlanCuenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdPlanCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_CLIENTE_IdCliente">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_LOTE_IdLote">
+          <End Role="LOTE" Type="Self.LOTE" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOTE">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBcsurModelStoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FASE" EntityType="Self.FASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOTE" EntityType="Self.LOTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MANZANO" EntityType="Self.MANZANO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLANCUENTAS" EntityType="Self.PLANCUENTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROPIETARIO" EntityType="Self.PROPIETARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACCION" EntityType="Self.TRANSACCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CUENTA_PERSONA_IdPersona" Association="Self.FK_CUENTA_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOTE_MANZANO_IdManzano" Association="Self.FK_LOTE_MANZANO_IdManzano">
+            <End Role="MANZANO" EntitySet="MANZANO" />
+            <End Role="LOTE" EntitySet="LOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANZANO_FASE_IdFase" Association="Self.FK_MANZANO_FASE_IdFase">
+            <End Role="FASE" EntitySet="FASE" />
+            <End Role="MANZANO" EntitySet="MANZANO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANCUENTAS_VENTA_IdVenta" Association="Self.FK_PLANCUENTAS_VENTA_IdVenta">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="PLANCUENTAS" EntitySet="PLANCUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROPIETARIO_LOTE_IdLote" Association="Self.FK_PROPIETARIO_LOTE_IdLote">
+            <End Role="LOTE" EntitySet="LOTE" />
+            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROPIETARIO_PERSONA_IdPersona" Association="Self.FK_PROPIETARIO_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION" Association="Self.FK_TRANSACCION">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_CLIENTE_IdCliente" Association="Self.FK_TRANSACCION_CLIENTE_IdCliente">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_CUENTA_IdCuenta" Association="Self.FK_TRANSACCION_CUENTA_IdCuenta">
+            <End Role="CUENTA" EntitySet="CUENTA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_PERSONA_IdPersona" Association="Self.FK_TRANSACCION_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" Association="Self.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta">
+            <End Role="PLANCUENTAS" EntitySet="PLANCUENTAS" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_CLIENTE_IdCliente" Association="Self.FK_VENTA_CLIENTE_IdCliente">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_LOTE_IdLote" Association="Self.FK_VENTA_LOTE_IdLote">
+            <End Role="LOTE" EntitySet="LOTE" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_PERSONA_IdPersona" Association="Self.FK_VENTA_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBcsurModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EntidadCLIENTE">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK_TRANSACCION_CLIENTE_IdCliente" FromRole="CLIENTE" ToRole="TRANSACCION" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_VENTA_CLIENTE_IdCliente" FromRole="CLIENTE" ToRole="VENTA" />
+          <Property Name="Ci" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="EntidadCUENTA">
+          <Key>
+            <PropertyRef Name="IdCuenta" />
+          </Key>
+          <Property Name="IdCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cuenta1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_CUENTA_PERSONA_IdPersona" FromRole="CUENTA" ToRole="PERSONA" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK_TRANSACCION_CUENTA_IdCuenta" FromRole="CUENTA" ToRole="TRANSACCION" />
+        </EntityType>
+        <EntityType Name="EntidadFASE">
+          <Key>
+            <PropertyRef Name="IdFase" />
+          </Key>
+          <Property Name="IdFase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreFase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Archivo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MANZANO" Relationship="Self.FK_MANZANO_FASE_IdFase" FromRole="FASE" ToRole="MANZANO" />
+        </EntityType>
+        <EntityType Name="EntidadLOTE">
+          <Key>
+            <PropertyRef Name="IdLote" />
+          </Key>
+          <Property Name="IdLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreLote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdManzano" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MANZANO" Relationship="Self.FK_LOTE_MANZANO_IdManzano" FromRole="LOTE" ToRole="MANZANO" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_VENTA_LOTE_IdLote" FromRole="LOTE" ToRole="VENTA" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="PROPIETARIO" Relationship="DBcsurModel.FK_PROPIETARIO_LOTE_IdLote" FromRole="EntidadLOTE" ToRole="PROPIETARIO" />
+        </EntityType>
+        <EntityType Name="EntidadMANZANO">
+          <Key>
+            <PropertyRef Name="IdManzano" />
+          </Key>
+          <Property Name="IdManzano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumManzano" Type="Int32" Nullable="false" />
+          <Property Name="IdFase" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FASE" Relationship="Self.FK_MANZANO_FASE_IdFase" FromRole="MANZANO" ToRole="FASE" />
+          <NavigationProperty Name="LOTE" Relationship="Self.FK_LOTE_MANZANO_IdManzano" FromRole="MANZANO" ToRole="LOTE" />
+        </EntityType>
+        <EntityType Name="EntidadPERSONA">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUENTA" Relationship="Self.FK_CUENTA_PERSONA_IdPersona" FromRole="PERSONA" ToRole="CUENTA" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK_TRANSACCION_PERSONA_IdPersona" FromRole="PERSONA" ToRole="TRANSACCION" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_VENTA_PERSONA_IdPersona" FromRole="PERSONA" ToRole="VENTA" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROPIETARIO" Relationship="DBcsurModel.FK_PROPIETARIO_PERSONA_IdPersona" FromRole="EntidadPERSONA" ToRole="PROPIETARIO" />
+        </EntityType>
+        <EntityType Name="EntidadPLANCUENTAS">
+          <Key>
+            <PropertyRef Name="IdPlanCuenta" />
+          </Key>
+          <Property Name="IdPlanCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NumCuota" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdVenta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_PLANCUENTAS_VENTA_IdVenta" FromRole="PLANCUENTAS" ToRole="VENTA" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" FromRole="PLANCUENTAS" ToRole="TRANSACCION" />
+        </EntityType>
+        <EntityType Name="EntidadTRANSACCION">
+          <Key>
+            <PropertyRef Name="IdTransaacion" />
+          </Key>
+          <Property Name="IdTransaacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Glosa" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="IdPlanCuenta" Type="Int32" />
+          <Property Name="IdVenta" Type="Int32" />
+          <Property Name="IdPersona" Type="Int32" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="TipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK_TRANSACCION_CLIENTE_IdCliente" FromRole="TRANSACCION" ToRole="CLIENTE" />
+          <NavigationProperty Name="CUENTA" Relationship="Self.FK_TRANSACCION_CUENTA_IdCuenta" FromRole="TRANSACCION" ToRole="CUENTA" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_TRANSACCION_PERSONA_IdPersona" FromRole="TRANSACCION" ToRole="PERSONA" />
+          <NavigationProperty Name="PLANCUENTAS" Relationship="Self.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" FromRole="TRANSACCION" ToRole="PLANCUENTAS" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_TRANSACCION" FromRole="TRANSACCION" ToRole="VENTA" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EntidadVENTA">
+          <Key>
+            <PropertyRef Name="IdVenta" />
+          </Key>
+          <Property Name="IdVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLote" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="FechaContrato" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK_VENTA_CLIENTE_IdCliente" FromRole="VENTA" ToRole="CLIENTE" />
+          <NavigationProperty Name="LOTE" Relationship="Self.FK_VENTA_LOTE_IdLote" FromRole="VENTA" ToRole="LOTE" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_VENTA_PERSONA_IdPersona" FromRole="VENTA" ToRole="PERSONA" />
+          <NavigationProperty Name="PLANCUENTAS" Relationship="Self.FK_PLANCUENTAS_VENTA_IdVenta" FromRole="VENTA" ToRole="PLANCUENTAS" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK_TRANSACCION" FromRole="VENTA" ToRole="TRANSACCION" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TRANSACCION_CLIENTE_IdCliente">
+          <End Role="CLIENTE" Type="DBcsurModel.EntidadCLIENTE" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="DBcsurModel.EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_CLIENTE_IdCliente">
+          <End Role="CLIENTE" Type="DBcsurModel.EntidadCLIENTE" Multiplicity="1" />
+          <End Role="VENTA" Type="DBcsurModel.EntidadVENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUENTA_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="DBcsurModel.EntidadPERSONA" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="DBcsurModel.EntidadCUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_CUENTA_IdCuenta">
+          <End Role="CUENTA" Type="DBcsurModel.EntidadCUENTA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="DBcsurModel.EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUENTA">
+              <PropertyRef Name="IdCuenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MANZANO_FASE_IdFase">
+          <End Role="FASE" Type="DBcsurModel.EntidadFASE" Multiplicity="1" />
+          <End Role="MANZANO" Type="DBcsurModel.EntidadMANZANO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FASE">
+              <PropertyRef Name="IdFase" />
+            </Principal>
+            <Dependent Role="MANZANO">
+              <PropertyRef Name="IdFase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOTE_MANZANO_IdManzano">
+          <End Role="MANZANO" Type="DBcsurModel.EntidadMANZANO" Multiplicity="1" />
+          <End Role="LOTE" Type="DBcsurModel.EntidadLOTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANZANO">
+              <PropertyRef Name="IdManzano" />
+            </Principal>
+            <Dependent Role="LOTE">
+              <PropertyRef Name="IdManzano" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_LOTE_IdLote">
+          <End Role="LOTE" Type="DBcsurModel.EntidadLOTE" Multiplicity="1" />
+          <End Role="VENTA" Type="DBcsurModel.EntidadVENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOTE">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="DBcsurModel.EntidadPERSONA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="DBcsurModel.EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_PERSONA_IdPersona">
+          <End Role="PERSONA" Type="DBcsurModel.EntidadPERSONA" Multiplicity="1" />
+          <End Role="VENTA" Type="DBcsurModel.EntidadVENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLANCUENTAS_VENTA_IdVenta">
+          <End Role="VENTA" Type="DBcsurModel.EntidadVENTA" Multiplicity="1" />
+          <End Role="PLANCUENTAS" Type="DBcsurModel.EntidadPLANCUENTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="IdVenta" />
+            </Principal>
+            <Dependent Role="PLANCUENTAS">
+              <PropertyRef Name="IdVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta">
+          <End Role="PLANCUENTAS" Type="DBcsurModel.EntidadPLANCUENTAS" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="DBcsurModel.EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLANCUENTAS">
+              <PropertyRef Name="IdPlanCuenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdPlanCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACCION">
+          <End Role="VENTA" Type="DBcsurModel.EntidadVENTA" Multiplicity="0..1" />
+          <End Role="TRANSACCION" Type="DBcsurModel.EntidadTRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="IdVenta" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="IdVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBcsurEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="DBcsurModel.EntidadCLIENTE" />
+          <EntitySet Name="CUENTA" EntityType="DBcsurModel.EntidadCUENTA" />
+          <EntitySet Name="FASE" EntityType="DBcsurModel.EntidadFASE" />
+          <EntitySet Name="LOTE" EntityType="DBcsurModel.EntidadLOTE" />
+          <EntitySet Name="MANZANO" EntityType="DBcsurModel.EntidadMANZANO" />
+          <EntitySet Name="PERSONA" EntityType="DBcsurModel.EntidadPERSONA" />
+          <EntitySet Name="PLANCUENTAS" EntityType="DBcsurModel.EntidadPLANCUENTAS" />
+          <EntitySet Name="TRANSACCION" EntityType="DBcsurModel.EntidadTRANSACCION" />
+          <EntitySet Name="VENTA" EntityType="DBcsurModel.EntidadVENTA" />
+          <AssociationSet Name="FK_TRANSACCION_CLIENTE_IdCliente" Association="Self.FK_TRANSACCION_CLIENTE_IdCliente">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_CLIENTE_IdCliente" Association="Self.FK_VENTA_CLIENTE_IdCliente">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUENTA_PERSONA_IdPersona" Association="Self.FK_CUENTA_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_CUENTA_IdCuenta" Association="Self.FK_TRANSACCION_CUENTA_IdCuenta">
+            <End Role="CUENTA" EntitySet="CUENTA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MANZANO_FASE_IdFase" Association="Self.FK_MANZANO_FASE_IdFase">
+            <End Role="FASE" EntitySet="FASE" />
+            <End Role="MANZANO" EntitySet="MANZANO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOTE_MANZANO_IdManzano" Association="Self.FK_LOTE_MANZANO_IdManzano">
+            <End Role="MANZANO" EntitySet="MANZANO" />
+            <End Role="LOTE" EntitySet="LOTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_LOTE_IdLote" Association="Self.FK_VENTA_LOTE_IdLote">
+            <End Role="LOTE" EntitySet="LOTE" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_PERSONA_IdPersona" Association="Self.FK_TRANSACCION_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_PERSONA_IdPersona" Association="Self.FK_VENTA_PERSONA_IdPersona">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLANCUENTAS_VENTA_IdVenta" Association="Self.FK_PLANCUENTAS_VENTA_IdVenta">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="PLANCUENTAS" EntitySet="PLANCUENTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" Association="Self.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta">
+            <End Role="PLANCUENTAS" EntitySet="PLANCUENTAS" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACCION" Association="Self.FK_TRANSACCION">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <EntitySet Name="PROPIETARIO" EntityType="DBcsurModel.EntidadPROPIETARIO" />
+          <AssociationSet Name="FK_PROPIETARIO_LOTE_IdLote" Association="DBcsurModel.FK_PROPIETARIO_LOTE_IdLote">
+            <End Role="EntidadLOTE" EntitySet="LOTE" />
+            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROPIETARIO_PERSONA_IdPersona" Association="DBcsurModel.FK_PROPIETARIO_PERSONA_IdPersona">
+            <End Role="EntidadPERSONA" EntitySet="PERSONA" />
+            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EntidadPROPIETARIO">
+          <Key>
+            <PropertyRef Name="IdPropietario" />
+          </Key>
+          <Property Name="IdPropietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPersona" Type="Int32" Nullable="false" />
+          <Property Name="IdLote" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LOTE" Relationship="DBcsurModel.FK_PROPIETARIO_LOTE_IdLote" FromRole="PROPIETARIO" ToRole="EntidadLOTE" />
+          <NavigationProperty Name="PERSONA" Relationship="DBcsurModel.FK_PROPIETARIO_PERSONA_IdPersona" FromRole="PROPIETARIO" ToRole="EntidadPERSONA" />
+        </EntityType>
+        <Association Name="FK_PROPIETARIO_LOTE_IdLote">
+          <End Type="DBcsurModel.EntidadLOTE" Role="EntidadLOTE" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadPROPIETARIO" Role="PROPIETARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntidadLOTE">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="PROPIETARIO">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROPIETARIO_PERSONA_IdPersona">
+          <End Type="DBcsurModel.EntidadPERSONA" Role="EntidadPERSONA" Multiplicity="1" />
+          <End Type="DBcsurModel.EntidadPROPIETARIO" Role="PROPIETARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntidadPERSONA">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="PROPIETARIO">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBcsurModelStoreContainer" CdmEntityContainer="DBcsurEntities">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadCLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Ci" ColumnName="Ci" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUENTA">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadCUENTA">
+              <MappingFragment StoreEntitySet="CUENTA">
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Cuenta1" ColumnName="Cuenta" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FASE">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadFASE">
+              <MappingFragment StoreEntitySet="FASE">
+                <ScalarProperty Name="IdFase" ColumnName="IdFase" />
+                <ScalarProperty Name="NombreFase" ColumnName="NombreFase" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOTE">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadLOTE">
+              <MappingFragment StoreEntitySet="LOTE">
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="NombreLote" ColumnName="NombreLote" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdManzano" ColumnName="IdManzano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANZANO">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadMANZANO">
+              <MappingFragment StoreEntitySet="MANZANO">
+                <ScalarProperty Name="IdManzano" ColumnName="IdManzano" />
+                <ScalarProperty Name="NumManzano" ColumnName="NumManzano" />
+                <ScalarProperty Name="IdFase" ColumnName="IdFase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadPERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLANCUENTAS">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadPLANCUENTAS">
+              <MappingFragment StoreEntitySet="PLANCUENTAS">
+                <ScalarProperty Name="IdPlanCuenta" ColumnName="IdPlanCuenta" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="NumCuota" ColumnName="NumCuota" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACCION">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadTRANSACCION">
+              <MappingFragment StoreEntitySet="TRANSACCION">
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdTransaacion" ColumnName="IdTransaacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Glosa" ColumnName="Glosa" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="IdPlanCuenta" ColumnName="IdPlanCuenta" />
+                <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadVENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="FechaContrato" ColumnName="FechaContrato" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROPIETARIO">
+            <EntityTypeMapping TypeName="DBcsurModel.EntidadPROPIETARIO">
+              <MappingFragment StoreEntitySet="PROPIETARIO">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdPropietario" ColumnName="IdPropietario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

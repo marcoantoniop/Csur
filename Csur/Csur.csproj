@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{730F28CB-AA23-44CA-BFCE-4A34C5B4F2BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Csur</RootNamespace>
+    <AssemblyName>Csur</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono_app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Csur.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.Map.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
+    <Reference Include="DevExpress.Utils.v18.1" />
+    <Reference Include="DevExpress.XtraBars.v18.1" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v18.1" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Nevron.Presentation, Version=18.2.28.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc" />
+    <Reference Include="Nevron.System, Version=18.2.28.12, Culture=neutral, PublicKeyToken=6a987feae5e496fd" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\EntidadCLIENTE.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadCUENTA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadFASE.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadLOTE.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadMANZANO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadPERSONA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadPLANCUENTAS.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadPROPIETARIO.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadTRANSACCION.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\EntidadVENTA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\ModeloDatos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\ModeloDatos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\ModeloDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInicial.Designer.cs">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ClassVenta.cs" />
+    <Compile Include="Negocio\CapaNegocio.cs" />
+    <Compile Include="Negocio\Mensajes.cs" />
+    <Compile Include="Negocio\NPermisos.cs" />
+    <Compile Include="Negocio\NUsuarios.cs" />
+    <Compile Include="Presentacion\Admin\FrmAdminPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAdminPersonas.Designer.cs">
+      <DependentUpon>FrmAdminPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAdminPropietario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAdminPropietario.Designer.cs">
+      <DependentUpon>FrmAdminPropietario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAdminTerreno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAdminTerreno.Designer.cs">
+      <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlCliente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlCliente.Designer.cs">
+      <DependentUpon>ControlCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlPersona.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlPersona.Designer.cs">
+      <DependentUpon>ControlPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlPlanCuentas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Controles\ControlPlanCuentas.Designer.cs">
+      <DependentUpon>ControlPlanCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmMaestro.Designer.cs">
+      <DependentUpon>FrmMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmNuevaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmNuevaVenta.Designer.cs">
+      <DependentUpon>FrmNuevaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmInicial.resx">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Admin\FrmAdminPersonas.resx">
+      <DependentUpon>FrmAdminPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Admin\FrmAdminPropietario.resx">
+      <DependentUpon>FrmAdminPropietario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Admin\FrmAdminTerreno.resx">
+      <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Controles\ControlCliente.resx">
+      <DependentUpon>ControlCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Controles\ControlPersona.resx">
+      <DependentUpon>ControlPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Controles\ControlPlanCuentas.resx">
+      <DependentUpon>ControlPlanCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmMaestro.resx">
+      <DependentUpon>FrmMaestro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmNuevaVenta.resx">
+      <DependentUpon>FrmNuevaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Datos\ModeloDatos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloDatos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Datos\ModeloDatos.edmx.diagram">
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Csur.Datos.DBcsurEntities.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadCLIENTE.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadCUENTA.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadFASE.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadLOTE.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadMANZANO.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadPERSONA.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadPLANCUENTAS.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadPROPIETARIO.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadTRANSACCION.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadUSUARIO.datasource" />
+    <None Include="Properties\DataSources\Csur.Datos.EntidadVENTA.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Datos\ModeloDatos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Datos\ModeloDatos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDatos.edmx</DependentUpon>
+      <LastGenOutput>ModeloDatos.cs</LastGenOutput>
+    </Content>
+    <Content Include="icono_app.ico" />
+    <None Include="Resources\ico_propietario.png" />
+    <None Include="Resources\ico_persona_cuenta1.png" />
+    <None Include="Resources\imagen_observaciones.jpg" />
+    <None Include="Resources\ico_info.png" />
+    <None Include="Resources\ico_pagos.png" />
+    <None Include="Resources\ico_persona_lock1.png" />
+    <None Include="Resources\ico_map_seg.png" />
+    <None Include="Resources\fondo_asist_5.png" />
+    <None Include="Resources\fondo_asist_4.png" />
+    <None Include="Resources\fondo_asist_3.png" />
+    <None Include="Resources\fondo_asist_2.png" />
+    <None Include="Resources\fondo_asist_1.png" />
+    <None Include="Resources\ico_varita.png" />
+    <None Include="Resources\manos_horizontal.jpg" />
+    <None Include="Resources\ico_venta.png" />
+    <None Include="Resources\ico_persona_cuenta.png" />
+    <None Include="Resources\ico_persona_lock.png" />
+    <None Include="Resources\ico_lote.png" />
+    <None Include="Resources\ico_manzano.png" />
+    <None Include="Resources\cuadro_manos.jpg" />
+    <None Include="Resources\ico_fase.png" />
+    <None Include="Resources\logo_cortado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RichTextBoxExtended\RichTextBoxExtended.csproj">
+      <Project>{A3A17708-F37E-47FE-B6B3-A43E1A008206}</Project>
+      <Name>RichTextBoxExtended</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9315c61c2d9d40078733eef320535d8d" Name="Diagram1">
+        <EntityTypeShape EntityType="DBcsurModel.EntidadCLIENTE" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadCUENTA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadFASE" Width="1.5" PointX="1.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadLOTE" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadMANZANO" Width="1.5" PointX="1.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadPERSONA" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadPLANCUENTAS" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadTRANSACCION" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadVENTA" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="DBcsurModel.FK_TRANSACCION_CLIENTE_IdCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_VENTA_CLIENTE_IdCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_CUENTA_PERSONA_IdPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_TRANSACCION_CUENTA_IdCuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_MANZANO_FASE_IdFase" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_LOTE_MANZANO_IdManzano" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_VENTA_LOTE_IdLote" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_TRANSACCION_PERSONA_IdPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_VENTA_PERSONA_IdPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_PLANCUENTAS_VENTA_IdVenta" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_TRANSACCION_PLANCUENTAS_IdPlanCuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="DBcsurModel.FK_TRANSACCION" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBcsurModel.EntidadPROPIETARIO" Width="1.5" PointX="6" PointY="13.125" />
+        <AssociationConnector Association="DBcsurModel.FK_PROPIETARIO_LOTE_IdLote" />
+        <AssociationConnector Association="DBcsurModel.FK_PROPIETARIO_PERSONA_IdPersona" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

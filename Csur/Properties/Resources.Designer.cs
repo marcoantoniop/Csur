@@ -123,6 +123,16 @@ namespace Csur.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo_bienes_raices {
+            get {
+                object obj = ResourceManager.GetObject("fondo-bienes-raices", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ico_commission {
             get {
                 object obj = ResourceManager.GetObject("ico_commission", resourceCulture);
@@ -336,6 +346,16 @@ namespace Csur.Properties {
         internal static System.Drawing.Bitmap logo_cortado {
             get {
                 object obj = ResourceManager.GetObject("logo_cortado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_gia {
+            get {
+                object obj = ResourceManager.GetObject("logo_gia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

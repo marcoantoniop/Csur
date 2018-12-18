@@ -39,10 +39,129 @@ namespace Csur.Modelo
         public static EntidadCOMISION EntidadComision { get => entidadComision; set => entidadComision = value; }
         #endregion
 
+        #region MetodosIniciales
+
+        public static void InicializarObjetos()
+        {
+
+        }
+        #endregion
+
+
         #region Verificadores
 
-        
+        /// <summary>
+        /// VERIFICAR PASO A
+        /// SELECCIONAMOS EL LOTE A VENDER
+        /// </summary>
+        /// <returns></returns>
+        public static bool VerificaPasoA()
+        {
+            bool resultado = false;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+            if (entidadLoteLlenado)
+            {
+                resultado = true;
+            }
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
 
+        /// <summary>
+        /// VERIFICAR CLIENTE
+        /// </summary>
+        /// <returns></returns>
+        public static bool VerificaPasoB()
+        {
+            bool resultado = false;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+            if (entidadCliente.IdCliente > 0)
+            {
+                resultado = true;
+            }
+            else
+            {
+                resultado = false;
+            }
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
+
+        /// <summary>
+        /// VERIFICA PLAN DE CUENTAS
+        /// </summary>
+        /// <returns></returns>
+        public static bool VerificaPasoC()
+        {
+            bool resultado = false;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+            if (planCuentasGenerado)
+            {
+                resultado = true;
+            }
+            else
+            {
+                resultado = false;
+            }
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
+
+        /// <summary>
+        /// PLAN CUENTAS
+        /// </summary>
+        /// <returns></returns>
+        public static bool VerificaPasoD()
+        {
+            bool resultado = true;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+            if (planCuentasGenerado)
+            {
+
+            }
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
+        public static bool VerificaPasoE()
+        {
+            bool resultado = true;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
+        public static bool VerificaPasoF()
+        {
+            bool resultado = true;
+            /**************************
+             *  INICIO DEL VERIFICADOR
+             **************************/
+
+            /**************************
+             *  FIN DEL VERIFICADOR
+             **************************/
+            return resultado;
+        }
         #endregion
     }
 }

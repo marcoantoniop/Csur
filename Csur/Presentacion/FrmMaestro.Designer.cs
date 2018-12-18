@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMaestro));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemFecha = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemUsuario = new DevExpress.XtraBars.BarStaticItem();
             this.BtnCerrar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -44,8 +44,8 @@
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.barStaticItem1,
-            this.barStaticItem2,
+            this.barItemFecha,
+            this.barItemUsuario,
             this.BtnCerrar});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 4;
@@ -56,17 +56,17 @@
             this.ribbon.Size = new System.Drawing.Size(659, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
-            // barStaticItem1
+            // barItemFecha
             // 
-            this.barStaticItem1.Caption = "barStaticItem1";
-            this.barStaticItem1.Id = 1;
-            this.barStaticItem1.Name = "barStaticItem1";
+            this.barItemFecha.Caption = "barFecha";
+            this.barItemFecha.Id = 1;
+            this.barItemFecha.Name = "barItemFecha";
             // 
-            // barStaticItem2
+            // barItemUsuario
             // 
-            this.barStaticItem2.Caption = "barStaticItem2";
-            this.barStaticItem2.Id = 2;
-            this.barStaticItem2.Name = "barStaticItem2";
+            this.barItemUsuario.Caption = "barUsuario";
+            this.barItemUsuario.Id = 2;
+            this.barItemUsuario.Name = "barItemUsuario";
             // 
             // BtnCerrar
             // 
@@ -92,8 +92,8 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
+            this.ribbonStatusBar.ItemLinks.Add(this.barItemFecha);
+            this.ribbonStatusBar.ItemLinks.Add(this.barItemUsuario);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 502);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -121,8 +121,8 @@
         #endregion
 
         protected DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        protected DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        protected DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        protected DevExpress.XtraBars.BarStaticItem barItemFecha;
+        protected DevExpress.XtraBars.BarStaticItem barItemUsuario;
         protected DevExpress.XtraBars.BarButtonItem BtnCerrar;
         protected DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         protected DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;

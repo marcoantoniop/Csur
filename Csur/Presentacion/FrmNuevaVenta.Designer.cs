@@ -143,6 +143,8 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.revisarControlPlanCuentas = new Csur.Presentacion.Controles.ControlPlanCuentas();
+            this.revisarLabelPromotor = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.BtnRevisarGuardarTodo = new DevExpress.XtraEditors.SimpleButton();
             this.revisarImprimirCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -154,8 +156,6 @@
             this.BtnActivarComprador = new DevExpress.XtraBars.BarButtonItem();
             this.BtnActivarPagos = new DevExpress.XtraBars.BarButtonItem();
             this.BtnActivarInfAdicional = new DevExpress.XtraBars.BarButtonItem();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.revisarLabelPromotor = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
@@ -1034,7 +1034,7 @@
             this.pagosPrimerPagoTxt.Location = new System.Drawing.Point(12, 151);
             this.pagosPrimerPagoTxt.MenuManager = this.ribbon;
             this.pagosPrimerPagoTxt.Name = "pagosPrimerPagoTxt";
-            this.pagosPrimerPagoTxt.Properties.Mask.EditMask = "c2";
+            this.pagosPrimerPagoTxt.Properties.Mask.EditMask = "n2";
             this.pagosPrimerPagoTxt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.pagosPrimerPagoTxt.Size = new System.Drawing.Size(103, 20);
             this.pagosPrimerPagoTxt.TabIndex = 7;
@@ -1383,6 +1383,24 @@
             this.revisarControlPlanCuentas.Size = new System.Drawing.Size(301, 336);
             this.revisarControlPlanCuentas.TabIndex = 6;
             // 
+            // revisarLabelPromotor
+            // 
+            this.revisarLabelPromotor.Location = new System.Drawing.Point(79, 12);
+            this.revisarLabelPromotor.Name = "revisarLabelPromotor";
+            this.revisarLabelPromotor.Size = new System.Drawing.Size(44, 13);
+            this.revisarLabelPromotor.TabIndex = 27;
+            this.revisarLabelPromotor.Text = "promotor";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl19.Appearance.Options.UseFont = true;
+            this.labelControl19.Location = new System.Drawing.Point(16, 12);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(57, 13);
+            this.labelControl19.TabIndex = 26;
+            this.labelControl19.Text = "Promotor:";
+            // 
             // BtnRevisarGuardarTodo
             // 
             this.BtnRevisarGuardarTodo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnRevisarGuardarTodo.ImageOptions.Image")));
@@ -1479,24 +1497,6 @@
             this.BtnActivarInfAdicional.Id = 8;
             this.BtnActivarInfAdicional.ImageOptions.LargeImage = global::Csur.Properties.Resources.ico_info;
             this.BtnActivarInfAdicional.Name = "BtnActivarInfAdicional";
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl19.Appearance.Options.UseFont = true;
-            this.labelControl19.Location = new System.Drawing.Point(16, 12);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(57, 13);
-            this.labelControl19.TabIndex = 26;
-            this.labelControl19.Text = "Promotor:";
-            // 
-            // revisarLabelPromotor
-            // 
-            this.revisarLabelPromotor.Location = new System.Drawing.Point(79, 12);
-            this.revisarLabelPromotor.Name = "revisarLabelPromotor";
-            this.revisarLabelPromotor.Size = new System.Drawing.Size(44, 13);
-            this.revisarLabelPromotor.TabIndex = 27;
-            this.revisarLabelPromotor.Text = "promotor";
             // 
             // FrmNuevaVenta
             // 

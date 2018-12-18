@@ -57,5 +57,11 @@ namespace Csur
             FrmConfig frmConfig = new FrmConfig();
             frmConfig.ShowDialog();
         }
+
+        private void BtnAdminCliente_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmAminCliente frmAminCliente = new FrmAminCliente();
+            frmAminCliente.ShowDialog();
+        }
     }
 }

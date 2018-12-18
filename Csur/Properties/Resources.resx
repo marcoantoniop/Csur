@@ -121,17 +121,26 @@
   <data name="ico_pagos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_pagos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_config_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_config_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ico_venta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_venta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_config_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_config_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ico_propietario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_propietario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ico_map_seg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_map_seg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="imagen_observaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen_observaciones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ico_map_seg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_map_seg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ico_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ico_commission" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_commission.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,9 +175,6 @@
   <data name="logo_cortado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_cortado.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ico_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ico_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fondo_asist_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondo_asist_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +189,9 @@
   </data>
   <data name="manos_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manos_horizontal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo-bienes-raices" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo-bienes-raices.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ico_persona_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_persona_lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,10 +208,7 @@
   <data name="fondo_asist_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondo_asist_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_config_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_config_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_config_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_config_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo_gia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_gia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -364,6 +364,7 @@ namespace Csur.Presentacion
         private void adicionalSearchVendedor_EditValueChanged(object sender, EventArgs e)
         {
             miEntidadPersona = (EntidadPERSONA)adicionalSearchLookUpEditViewVendedor.GetFocusedRow();
+            ClassVenta.EntidadPersona = miEntidadPersona;
         }
 
         private void tabPagD_Enter(object sender, EventArgs e)

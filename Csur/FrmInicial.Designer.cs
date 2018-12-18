@@ -50,11 +50,9 @@
             this.ribbonPReportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPTransacciones = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonGTransacciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.mapControl1 = new DevExpress.XtraMap.MapControl();
-            this.imageLayer1 = new DevExpress.XtraMap.ImageLayer();
-            this.openStreetMapDataProvider1 = new DevExpress.XtraMap.OpenStreetMapDataProvider();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -117,6 +115,7 @@
             this.BtnAdminCliente.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnAdminCliente.ImageOptions.Image")));
             this.BtnAdminCliente.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnAdminCliente.ImageOptions.LargeImage")));
             this.BtnAdminCliente.Name = "BtnAdminCliente";
+            this.BtnAdminCliente.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnAdminCliente_ItemClick);
             // 
             // BtnAdminUsuario
             // 
@@ -226,23 +225,23 @@
             this.ribbonGTransacciones.Name = "ribbonGTransacciones";
             this.ribbonGTransacciones.Text = "General";
             // 
-            // mapControl1
+            // pictureBox1
             // 
-            this.mapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mapControl1.Layers.Add(this.imageLayer1);
-            this.mapControl1.Location = new System.Drawing.Point(0, 143);
-            this.mapControl1.Name = "mapControl1";
-            this.mapControl1.Size = new System.Drawing.Size(785, 389);
-            this.mapControl1.TabIndex = 1;
-            this.imageLayer1.DataProvider = this.openStreetMapDataProvider1;
-            this.openStreetMapDataProvider1.TileUriTemplate = "http://{0}.tile.INSERT_SERVER_NAME.com/{1}/{2}/{3}.png";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Csur.Properties.Resources.fondo_bienes_raices;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 143);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(785, 389);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 532);
-            this.Controls.Add(this.mapControl1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInicial";
@@ -251,7 +250,7 @@
             this.Text = "CIMIENTOS DE SUR";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mapControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,15 +272,13 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPCliente;
         private DevExpress.XtraBars.BarButtonItem BtnAdminCliente;
         private DevExpress.XtraBars.BarButtonItem BtnAdminUsuario;
-        private DevExpress.XtraMap.MapControl mapControl1;
-        private DevExpress.XtraMap.ImageLayer imageLayer1;
-        private DevExpress.XtraMap.OpenStreetMapDataProvider openStreetMapDataProvider1;
         private DevExpress.XtraBars.BarButtonItem BtnNuevaVenta;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGRapidos;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGTransacciones;
         private DevExpress.XtraBars.BarButtonItem BtnAdminPropietario;
         private DevExpress.XtraBars.BarButtonItem BtnConfigAvanzada;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

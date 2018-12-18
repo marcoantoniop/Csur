@@ -168,6 +168,12 @@
     <Compile Include="Presentacion\Admin\FrmAdminTerreno.Designer.cs">
       <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\Admin\FrmAminCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Admin\FrmAminCliente.Designer.cs">
+      <DependentUpon>FrmAminCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Admin\FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Admin\FrmAdminTerreno.resx">
       <DependentUpon>FrmAdminTerreno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Admin\FrmAminCliente.resx">
+      <DependentUpon>FrmAminCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Admin\FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
@@ -329,6 +338,8 @@
       <LastGenOutput>ModeloDatos.cs</LastGenOutput>
     </Content>
     <Content Include="icono_app.ico" />
+    <None Include="Resources\logo_gia.jpg" />
+    <None Include="Resources\fondo-bienes-raices.jpg" />
     <None Include="Resources\icon_config_save.png" />
     <None Include="Resources\icon_config_new.png" />
     <None Include="Resources\icon_sobre_dinero.png" />
